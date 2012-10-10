@@ -1,11 +1,10 @@
 Package: jp.novi.FakeClockUp
 Name: FakeClockUp
-Version: 0.5
+Version: 0.6
 Section: Tweaks
 Depends: mobilesubstrate, preferenceloader, applist, firmware (>= 4.3)
 Architecture: iphoneos-arm
 Description: FakeClockUp accelerates UIKit transition animation.
 author: novi & r_plus
-dev: rplus
-Icon: file:///Library/PreferenceLoader/Preferences/FakeClockUp@2x.png
+Icon: file:///Library/PreferenceLoader/Preferences/FakeClockUp/FakeClockUp@2x.png
 Tag: purpose::extension 
