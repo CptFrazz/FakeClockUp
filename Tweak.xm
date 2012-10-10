@@ -2,8 +2,8 @@ static float durMulti;
 static BOOL fakeClockUpIsEnabled;
 static BOOL excludeEditingMode;
 static BOOL excludeNetworkActivityIndicator;
-static BOOL isDiabledApplication;
-static BOOL switcherIsEditing;
+static BOOL isDiabledApplication = NO;
+static BOOL switcherIsEditing = NO;
 
 @interface SBIconController : NSObject
 + (id)sharedInstance;
