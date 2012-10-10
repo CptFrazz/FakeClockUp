@@ -117,7 +117,7 @@
 			<key>label</key>
 			<string>Exclude</string>
 			<key>footerText</key>
-			<string>author: novi and r_plus</string>
+      <string>FakeClockUp(Original) - Copyright 2011 novi, Licensed under the Apache License 2.0; Modified by r_plus</string>
 		</dict>
       <dict>
         <key>cell</key>
