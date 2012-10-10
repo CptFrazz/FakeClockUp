@@ -13,11 +13,10 @@ static BOOL switcherIsEditing = NO;
 %hook CAAnimation
 - (void)setDuration:(NSTimeInterval)duration
 {
-  if (isDiabledApplication || !fakeClockUpIsEnabled)
-    return %orig;
-  if (([[%c(SBIconController) sharedInstance] isEditing] || switcherIsEditing) && excludeEditingMode)
-    return %orig;
-  %orig(duration * durMulti);
+  if ((isDiabledApplication || !fakeClockUpIsEnabled) || (([[%c(SBIconController) sharedInstance] isEditing] || switcherIsEditing) && excludeEditingMode))
+    %orig;
+  else
+    %orig(duration * durMulti);
 }
 %end
 
@@ -25,8 +24,9 @@ static BOOL switcherIsEditing = NO;
 - (void)setAnimationDuration:(double)duration
 {
   if (fakeClockUpIsEnabled && excludeNetworkActivityIndicator)
-    return %orig(duration / durMulti);
-  %orig;
+    %orig(duration / durMulti);
+  else
+    %orig;
 }
 %end
 
