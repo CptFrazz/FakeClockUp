@@ -50,8 +50,7 @@ static void LoadSettings()
   NSDictionary *udDict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/jp.novi.FakeClockUp.plist"];
   id durationExsist = [udDict objectForKey:@"duration"];
   float durm = durationExsist ? [durationExsist floatValue] : 0.4;
-  if (durm != 0.0 && durm >= 0.001 && durm <= 20)
-    durMulti = durm;
+  durMulti = (durm >= 0.1 && durm <= 10.0f) ? durm : 1.0f;
 
   id fakeClockUpIsEnabledPref = [udDict objectForKey:@"enabled"];
   fakeClockUpIsEnabled = fakeClockUpIsEnabledPref ? [fakeClockUpIsEnabledPref boolValue] : YES;
