@@ -22,7 +22,10 @@ __attribute__((visibility("hidden")))
     view = [[UITextView alloc] initWithFrame:frame];
     NSData *data = [NSData dataWithContentsOfFile:@"/Library/PreferenceBundles/FakeClockUpSettings.bundle/LICENSE"];
     view.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
+    view.editable = NO;
     view.font = [UIFont systemFontOfSize:8.0f];
+    if ([self respondsToSelector:@selector(navigationItem)])
+      [[self navigationItem] setTitle:@"License"];
   }
   return self;
 }
