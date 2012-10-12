@@ -83,9 +83,7 @@ __attribute__((visibility("hidden")))
 - (void)setSliderValue:(id)value specifier:(id)specifier
 {
   [self setPreferenceValue:value specifier:specifier];
-  NSLog(@"read slider = %f", [value floatValue]);
   int sliderValue = [value intValue];
-  NSLog(@"int slider = %d", sliderValue);
   double duration;
   if (sliderValue == 10) {
     duration = 1.0f;
