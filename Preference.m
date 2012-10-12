@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc
 {
 	[view release];
+  view = nil;
 	[super dealloc];
 }
 @end
@@ -97,6 +98,14 @@ __attribute__((visibility("hidden")))
   [self setPreferenceValue:[NSString stringWithFormat:@"%f", duration] specifier:durationSpecifier];
   [self reloadSpecifier:durationSpecifier];
   [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)openCydia:(id)specifier {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"cydia://package/jp.r-plus.sleipnizerforsafari"]];
+}
+
+- (void)openGithub:(id)specifier {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/r-plus/FakeClockUp/"]];
 }
 
 @end

@@ -170,11 +170,37 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>License</string>
 			<key>footerText</key>
-      <string>FakeClockUp(Original) - Copyright 2011 novi, Licensed under the Apache License 2.0; Modified by r_plus</string>
+      <string>Please consider purchase my paid tweak instead of donate if you like this tweak.</string>
 		</dict>
+      <dict>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>action</key>
+        <string>openCydia:</string>
+        <key>icon</key>
+        <string>SleipnizerforSafari.png</string>
+        <key>label</key>
+        <string>Sleipnizer for Safari</string>
+      </dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>OpenSource</string>
+			<key>footerText</key>
+      <string>FakeClockUp - Copyright 2011 novi, Licensed under the Apache License 2.0; Modified by r_plus</string>
+		</dict>
+      <dict>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>action</key>
+        <string>openGithub:</string>
+        <key>icon</key>
+        <string>github.png</string>
+        <key>label</key>
+        <string>FakeClockUp SourceCode</string>
+      </dict>
       <dict>
         <key>cell</key>
         <string>PSLinkCell</string>

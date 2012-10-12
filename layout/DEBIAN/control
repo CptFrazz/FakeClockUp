@@ -1,6 +1,6 @@
 Package: jp.novi.FakeClockUp
 Name: FakeClockUp
-Version: 0.7
+Version: 0.7.1
 Section: Tweaks
 Depends: mobilesubstrate, preferenceloader, applist, firmware (>= 4.3)
 Architecture: iphoneos-arm
