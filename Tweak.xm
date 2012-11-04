@@ -2,7 +2,7 @@ static float durMulti;
 static BOOL fakeClockUpIsEnabled;
 static BOOL excludeEditingMode;
 static BOOL excludeNetworkActivityIndicator;
-static BOOL isDiabledApplication = NO;
+static BOOL isDisableApplication = NO;
 static BOOL switcherIsEditing = NO;
 
 @interface SBIconController : NSObject
@@ -13,7 +13,7 @@ static BOOL switcherIsEditing = NO;
 %hook CAAnimation
 - (void)setDuration:(NSTimeInterval)duration
 {
-  if ((isDiabledApplication || !fakeClockUpIsEnabled) || (([[%c(SBIconController) sharedInstance] isEditing] || switcherIsEditing) && excludeEditingMode))
+  if ((isDisableApplication || !fakeClockUpIsEnabled) || (([[%c(SBIconController) sharedInstance] isEditing] || switcherIsEditing) && excludeEditingMode))
     %orig;
   else
     %orig(duration * durMulti);
@@ -65,7 +65,7 @@ static void LoadSettings()
   if (bundleIdentifier) {
     NSString *key = [@"FCDisable-" stringByAppendingString:bundleIdentifier];
     id disablePref = [udDict objectForKey:key];
-    isDiabledApplication = disablePref ? [disablePref boolValue] : NO;
+    isDisableApplication = disablePref ? [disablePref boolValue] : NO;
   }
 }
 
