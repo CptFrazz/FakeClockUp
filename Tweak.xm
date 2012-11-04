@@ -31,6 +31,7 @@ static BOOL switcherIsEditing = NO;
 %end
 
 // NOTE: ivar of _editing is not change before call -[CAAnimation setDuration:] method.
+%group SpringBoardHook
 %hook SBAppSwitcherController
 - (void)_beginEditing
 {
@@ -43,6 +44,7 @@ static BOOL switcherIsEditing = NO;
   switcherIsEditing = NO;
   %orig;
 }
+%end
 %end
 
 static void LoadSettings()
@@ -77,7 +79,14 @@ static void ChangeNotification(CFNotificationCenterRef center, void *observer, C
 %ctor
 { 
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
   CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, ChangeNotification, CFSTR("jp.novi.FakeClockUp.preferencechanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
   LoadSettings();
+
+  %init;
+  NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
+  if ([bundleIdentifier isEqualToString:@"com.apple.springboard"])
+    %init(SpringBoardHook);
+
   [pool drain];
 }
