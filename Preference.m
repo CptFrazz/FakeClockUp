@@ -2,51 +2,6 @@
 #import <Preferences/Preferences.h>
 
 __attribute__((visibility("hidden")))
-@interface LicenseController : PSViewController {
-  UITextView *view;
-}
-@end
-
-@implementation LicenseController
-
-- (id)initForContentSize:(CGSize)size
-{
-  if ([[PSViewController class] instancesRespondToSelector:@selector(initForContentSize:)])
-    self = [super initForContentSize:size];
-  else
-    self = [super init];
-  if (self) {
-    CGRect frame;
-    frame.origin = CGPointZero;
-    frame.size = size;
-    view = [[UITextView alloc] initWithFrame:frame];
-    NSData *data = [NSData dataWithContentsOfFile:@"/Library/PreferenceBundles/FakeClockUpSettings.bundle/LICENSE"];
-    view.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
-    view.editable = NO;
-    view.font = [UIFont systemFontOfSize:8.0f];
-    if ([self respondsToSelector:@selector(navigationItem)])
-      [[self navigationItem] setTitle:@"License"];
-  }
-  return self;
-}
-
-- (UIView *)view {
-	return view;
-}
-
-- (CGSize)contentSize {
-	return [view frame].size;
-}
-
-- (void)dealloc
-{
-	[view release];
-  view = nil;
-	[super dealloc];
-}
-@end
-
-__attribute__((visibility("hidden")))
 @interface FCPreferenceController : PSListController
 - (id)specifiers;
 @end
@@ -106,5 +61,50 @@ __attribute__((visibility("hidden")))
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/r-plus/FakeClockUp/"]];
 }
 
+@end
+
+__attribute__((visibility("hidden")))
+@interface LicenseController : PSViewController {
+  UITextView *view;
+}
+@end
+
+@implementation LicenseController
+
+- (id)initForContentSize:(CGSize)size
+{
+  if ([[PSViewController class] instancesRespondToSelector:@selector(initForContentSize:)])
+    self = [super initForContentSize:size];
+  else
+    self = [super init];
+  if (self) {
+    CGRect frame;
+    frame.origin = CGPointZero;
+    frame.size = size;
+    view = [[UITextView alloc] initWithFrame:frame];
+    NSData *data = [NSData dataWithContentsOfFile:@"/Library/PreferenceBundles/FakeClockUpSettings.bundle/LICENSE"];
+    view.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
+    view.editable = NO;
+    view.font = [UIFont systemFontOfSize:8.0f];
+    if ([self respondsToSelector:@selector(navigationItem)])
+      [[self navigationItem] setTitle:@"License"];
+  }
+  return self;
+}
+
+- (UIView *)view {
+	return view;
+}
+
+- (CGSize)contentSize {
+	return [view frame].size;
+}
+
+- (void)dealloc
+{
+	[view release];
+  view = nil;
+	[super dealloc];
+}
 @end
 

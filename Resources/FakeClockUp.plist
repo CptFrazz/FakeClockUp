@@ -35,7 +35,7 @@
 			<key>cell</key>
 			<string>PSLinkListCell</string>
 			<key>default</key>
-			<string>0.4</string>
+			<string>0.400000</string>
 			<key>defaults</key>
 			<string>jp.novi.FakeClockUp</string>
 			<key>detail</key>
